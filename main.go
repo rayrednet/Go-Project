@@ -5,6 +5,7 @@ func main() {
   conferenceName  := "Go Conference"
   const conferenceTickets uint = 50
   var remainingTickets uint = 50
+  var bookings [50] string
 
   fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n", conferenceTickets, remainingTickets, conferenceName)
 
@@ -31,6 +32,12 @@ func main() {
   fmt.Scan(&userTickets)
 
   remainingTickets -= userTickets
+  bookings[0] = firstName + " " + lastName
+
+  fmt.Printf("Bookings: %v\n", bookings)
+  fmt.Printf("The first value in bookings is %v\n", bookings[0])
+  fmt.Printf("Array type of bookings is %T\n", bookings)
+  fmt.Printf("Array length of bookings is %v\n", len(bookings))
 
   fmt.Printf ("Thank you %v %v for booking %v tickets for %v. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, conferenceName, email)
   fmt.Printf("There are %v tickets remaining for %v\n", remainingTickets, conferenceName)
