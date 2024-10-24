@@ -69,4 +69,16 @@ func main() {
         continue
       }
   }
+
+  city := "San Francisco"
+  switch city {
+    case "San Francisco", "Paris", "Tokyo":
+      fmt.Println("The conference will be held in San Francisco")
+    case "New York", "Berlin":
+      fmt.Println("The conference will be held in New York")
+    case "London":
+      fmt.Println("The conference will be held in London")
+    default: 
+      fmt.Println("No valid city selected")
+  }
   }
