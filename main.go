@@ -10,8 +10,6 @@ func main() {
   var remainingTickets uint = 50
   bookings := [] string{}
 
-  fmt.Printf("conferenceTickets is %T, remainingTickets is %T, conferenceName is %T\n", conferenceTickets, remainingTickets, conferenceName)
-
   fmt.Printf("Welcome to %v booking application\n", conferenceName)
   fmt.Printf("We have the total of %v tickets and %v are still available\n", conferenceTickets, remainingTickets)
   fmt.Println("Get your tickets here to attend")
@@ -68,17 +66,5 @@ func main() {
         }
         continue
       }
-  }
-
-  city := "San Francisco"
-  switch city {
-    case "San Francisco", "Paris", "Tokyo":
-      fmt.Println("The conference will be held in San Francisco")
-    case "New York", "Berlin":
-      fmt.Println("The conference will be held in New York")
-    case "London":
-      fmt.Println("The conference will be held in London")
-    default: 
-      fmt.Println("No valid city selected")
-  }
+  } 
   }
