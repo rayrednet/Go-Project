@@ -17,9 +17,17 @@ type UserData struct {
 }
 
 func GreetUsers(conferenceName string, conferenceTickets uint, remainingTickets uint) {
-  fmt.Printf("Welcome to %v booking application\n", conferenceName)
-  fmt.Printf("We have the total of %v tickets and %v are still available\n", conferenceTickets, remainingTickets)
-  fmt.Println("Get your tickets here to attend")
+  fmt.Println()
+  fmt.Println()
+  fmt.Println("=============================================================")
+  fmt.Printf("🎉 Welcome to the %v Booking Application 🎉\n", conferenceName)
+  fmt.Println("=============================================================")
+
+  fmt.Printf("🎟️  Total Tickets: %v\n", conferenceTickets)
+  fmt.Printf("🎫  Tickets Remaining: %v\n\n", remainingTickets)
+
+  fmt.Println("✨ Get your tickets here to attend and enjoy an unforgettable experience! ✨")
+  fmt.Println("-------------------------------------------------------------")
 }
 
 func GetUserInput() (string, string, string, uint) {
@@ -28,17 +36,26 @@ func GetUserInput() (string, string, string, uint) {
   var email string
   var userTickets uint
 
-  fmt.Println("Please enter your first name:")
+  fmt.Println()
+  fmt.Println("👤 Let's get to know you! Please enter your details below to order your ticket👇")
+
+  fmt.Println("\n📝 First Name:")
+  fmt.Print("👉 ")
   fmt.Scan(&firstName)
 
-  fmt.Println("Please enter your last name:")
+  fmt.Println("\n📝 Last Name:")
+  fmt.Print("👉 ")
   fmt.Scan(&lastName)
 
-  fmt.Println("Please enter your email:")
+  fmt.Println("\n📧 Email Address:")
+  fmt.Print("👉 ")
   fmt.Scan(&email)
 
-  fmt.Println("Please enter the number of tickets you want to book:")
+  fmt.Println("\n🎟️ Number of Tickets:")
+  fmt.Print("👉 ")
   fmt.Scan(&userTickets)
+
+  fmt.Println("\n✅ Thank you! You've entered your information successfully")
 
   return firstName, lastName, email, userTickets
 }
@@ -50,22 +67,27 @@ func ValidateUserInput(firstName string, lastName string, email string, userTick
     return isValidName, isValidEmail, isValidTicketsNumber
   }
 
-func BookTickets (userTickets uint, firstName string, lastName string, email string, remainingTickets *uint, conferenceName string) {
-  *remainingTickets -= userTickets
+  func BookTickets(userTickets uint, firstName string, lastName string, email string, remainingTickets *uint, conferenceName string) {
+    fmt.Println() 
 
-  var userData = UserData{
-    FirstName: firstName,
-    LastName: lastName,
-    Email: email,
-    NumberOfTickets: userTickets,
-  }
+    *remainingTickets -= userTickets
 
-  bookings = append(bookings, userData)
-  fmt.Printf("List of bookings: %v\n", bookings)
+    var userData = UserData{
+        FirstName:      firstName,
+        LastName:       lastName,
+        Email:          email,
+        NumberOfTickets: userTickets,
+    }
 
-  fmt.Printf ("Thank you %v %v for booking %v tickets for %v. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, conferenceName, email)
-  fmt.Printf("There are %v tickets remaining for %v\n", *remainingTickets, conferenceName)
+    bookings = append(bookings, userData)
+    fmt.Printf("📝 List of Bookings: %v\n", bookings)
+
+    fmt.Printf("🎉 Thank you, %v %v, for booking %v tickets for %v!\n", firstName, lastName, userTickets, conferenceName)
+    fmt.Printf("📧 A confirmation email will be sent to: %v\n", email)
+    fmt.Printf("🎟️ Remaining Tickets: %v for %v\n", *remainingTickets, conferenceName)
+     fmt.Println("-------------------------------------------------------------")
 }
+
 
 func GetFirstNames() []string {
   firstNames := []string{}
@@ -76,10 +98,16 @@ func GetFirstNames() []string {
 }
 
 func SendTicket(userTickets uint, firstName string, lastName string, email string, wg *sync.WaitGroup) {
-  time.Sleep(50 * time.Second)
+  fmt.Println() 
+
+  time.Sleep(10 * time.Second)
   var ticket = fmt.Sprintf("%v tickets for %v %v", userTickets, firstName, lastName)
+
   fmt.Println("###########################")
-  fmt.Printf("Sending ticket:\n%v\nhas been sent to email address %v\n", ticket, email)
+  fmt.Println("🎟️  Sending Ticket... 🎟️")
+  fmt.Printf("📧 Ticket Details:\n%v\nConfirmation email has been sent to: %v\n", ticket, email)
   fmt.Println("###########################")
+  fmt.Println("✅ Ticket sent successfully!")
+
   wg.Done()
 }
