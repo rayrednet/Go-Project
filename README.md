@@ -15,7 +15,7 @@ This Go project is part of my course, **Pemrograman Berbasis Kerangka Kerja (D)*
 The project is based on a tutorial from the YouTube video: [Golang Tutorial for Beginners | Full Go Course by TechWorld with Nana](https://youtu.be/yyUHQIec83I?si=s1RoXRBlNdCXgo8g). The video is divided into two sections for clarity.
 
 - **[Section 1:](https://github.com/rayrednet/Go-Project?tab=readme-ov-file#-section-1---introduction-to-go-0000---15402)** Introduction to Go, basic syntax, and control structures (00:00 - 1:54:02)
-- **Section 2:** Functions and advanced topics (1:58:37 - 3:23:51)
+- **[Section 2:](https://github.com/rayrednet/Go-Project?tab=readme-ov-file#-section-2---functions-and-advanced-topics-15837---32351)** Functions and advanced topics (1:58:37 - 3:23:51)
 
 You can follow each commit to see how the project evolves. View screenshots demonstrating the code output in each section.
 
